@@ -95,10 +95,12 @@
                 let elemento    = document.getElementById('editor_'+ index);
                 let contacto    = elemento.innerHTML;
                 let editado     = elemento.dataset.editado;
+                let weekday     = c.$store.state.weekday;
                 let datos       = {
                     fecha       : c.$store.state.fecha,
                     hora        : hora,
-                    contacto    : contacto
+                    contacto    : contacto,
+                    weekday     : weekday
                 }
                 if(editado == 0){
                     c.dialog = true

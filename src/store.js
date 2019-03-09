@@ -17,7 +17,8 @@ export const store = new Vuex.Store({
         fecha:'',
         cargando: false,
         ruta: 'http://134.209.122.18/api/',
-        citas: []
+        citas: [],
+        weekday: null,
     },
     mutations: {
         cambiarFecha(state, fecha){
@@ -32,7 +33,10 @@ export const store = new Vuex.Store({
         getCitas(state, citas){
             state.citas = citas;
             this.state.cargando = false;
-        }
+        },
+        cambiarWeekday(state, weekday){
+            state.weekday = weekday;
+        },
     },
     actions: {
         loadCitas({ commit }, fecha){

@@ -10,7 +10,7 @@
             <v-sheet height="500">
                 <v-calendar ref="calendar" v-model="today" :type="type" :end="end" :now="today" color="primary">
                     <template v-slot:day="day">
-                    <div class="day">
+                    <div class="day" v-if="day.weekday!= 0 && day.weekday!= 6">
                         <v-btn  flat icon color="accent" style="cursor: pointer" @click="selectDay(day)">
                             <v-icon dark left >
                                 list
@@ -68,15 +68,16 @@
                 this.today = evento.date;
                 this.$store.commit('cambiarFecha', this.today);
                 this.$store.commit('cambiarMenu', 1);
+                this.$store.commit('cambiarWeekday', evento.weekday)
                 this.$store.dispatch('loadCitas', evento.date)
             },
-            ...mapMutations(['cambiarFecha, cambiarMenu'])
+            ...mapMutations(['cambiarFecha','cambiarMenu','cambiarWeekday'])
         },
         computed:{
             titulo(){
                 return this.$store.state.menu[this.$store.state.menuActivo].nombre;
             },
-            ...mapState(['menu', 'menuActivo', 'fecha'])
+            ...mapState(['menu', 'menuActivo', 'fecha', 'weekday'])
         }
     }
 </script>

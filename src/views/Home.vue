@@ -3,9 +3,13 @@
         <template v-if="menuActivo==0">
             <calendario></calendario>
         </template>
-        <template v-if="menuActivo==1">
-            <agenda></agenda>
-        </template>
+
+        <v-slide-y-transition>
+            <template v-if="menuActivo==1">
+                <agenda></agenda>
+            </template>
+        </v-slide-y-transition>
+
         <v-dialog v-model="cargando" hide-overlay persistent width="300" >
             <v-card color="accent" dark>
                 <v-card-text>
