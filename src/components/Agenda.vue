@@ -110,7 +110,6 @@
                 axios.post(c.$store.state.ruta + 'cita', datos)
                 .then(r => r.data)
                 .then(cita =>{
-                    console.log(cita);
                     c.$store.commit('getCitas', cita)
                     c.$store.commit('cambiarCargando', false);
                 });

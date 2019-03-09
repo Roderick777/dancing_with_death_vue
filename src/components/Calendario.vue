@@ -64,7 +64,6 @@
         }),
         methods:{
             selectDay: function (evento){
-                console.log(evento);
                 this.today = evento.date;
                 this.$store.commit('cambiarFecha', this.today);
                 this.$store.commit('cambiarMenu', 1);
